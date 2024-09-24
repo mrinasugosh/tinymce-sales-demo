@@ -4,7 +4,6 @@ import './App.css';
 
 export default function App() {
   const editorRef = useRef(null);
-  console.log(import.meta.env.VITE_TINYMCE_API_KEY);
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent());
