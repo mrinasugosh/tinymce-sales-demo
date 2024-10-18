@@ -5,7 +5,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 
 
-const PowerPasteDemo = () => {
+const EnhancedTable = () => {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
@@ -174,4 +174,4 @@ const PowerPasteDemo = () => {
   );
 };
 
-export default PowerPasteDemo;
+export default EnhancedTable;

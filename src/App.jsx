@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css'; // Assuming you have some base styling here
 import PowerPasteDemo from './components/PowerPasteDemo';
 import EnhancedTable from './components/EnhancedTable';
+import AdvancedTemplates from './components/AdvancedTemplates';
 
 const HomePage = () => {
   return (
     <div className="home-container">
-  <h1 style={{ textAlign: 'center' }}>Moodle Moot - TinyMCE Demos</h1>
+  <h1 style={{ textAlign: 'center' }}>TinyMCE Demos</h1>
   <div className="button-grid">
     <Link to="/powerpaste">
       <button className="go-to-editor-button">Power Paste</button>
@@ -39,7 +40,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/powerpaste" element={<PowerPasteDemo />} />
         <Route path="/enhancedtable" element={<EnhancedTable />} />
-        <Route path="/advancedtemplates" element={<HomePage />} />
+        <Route path="/advancedtemplates" element={<AdvancedTemplates />} />
         <Route path="/spellchecker" element={<HomePage />} />
         <Route path="/accessibilitychecker" element={<HomePage />} />
         <Route path="/ai" element={<HomePage />} />
