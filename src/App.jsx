@@ -4,6 +4,7 @@ import './App.css'; // Assuming you have some base styling here
 import PowerPasteDemo from './components/PowerPasteDemo';
 import EnhancedTable from './components/EnhancedTable';
 import AdvancedTemplates from './components/AdvancedTemplates';
+import SpellChecker from './components/SpellChecker';
 
 const HomePage = () => {
   return (
@@ -41,7 +42,7 @@ const App = () => {
         <Route path="/powerpaste" element={<PowerPasteDemo />} />
         <Route path="/enhancedtable" element={<EnhancedTable />} />
         <Route path="/advancedtemplates" element={<AdvancedTemplates />} />
-        <Route path="/spellchecker" element={<HomePage />} />
+        <Route path="/spellchecker" element={<SpellChecker />} />
         <Route path="/accessibilitychecker" element={<HomePage />} />
         <Route path="/ai" element={<HomePage />} />
       </Routes>
