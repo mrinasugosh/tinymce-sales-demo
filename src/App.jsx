@@ -1,35 +1,28 @@
-import { useRef } from 'react';
-import { Editor } from '@tinymce/tinymce-react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css'; // Assuming you have some base styling here
+import PowerPasteDemo from './PowerPasteDemo';
 
-export default function App() {
-  const editorRef = useRef(null);
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+const HomePage = () => {
   return (
-    <>
-      <Editor
-        apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
-        onInit={(_evt, editor) => editorRef.current = editor}
-        initialValue="<p>This is the initial content of the editor.</p>"
-        init={{
-          height: 500,
-          menubar: false,
-          plugins: [
-            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-          ],
-          toolbar: 'undo redo | blocks | ' +
-            'bold italic forecolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
-          content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-        }}
-      />
-    </>
+    <div className="home-container">
+      <h1>Moodle Moot - TinyMCE Demos</h1>
+      <Link to="/powerpaste">
+        <button className="go-to-editor-button">Power Paste</button>
+      </Link>
+    </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/powerpaste" element={<PowerPasteDemo />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
