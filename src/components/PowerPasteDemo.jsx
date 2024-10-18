@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
-import './PowerPasteDemo.css'; // Assuming the CSS file is named Editor.css
+import '../styles/PowerPasteDemo.css'; // Assuming the CSS file is named Editor.css
 import { Editor } from '@tinymce/tinymce-react';
 
 
