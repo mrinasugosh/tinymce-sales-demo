@@ -22,7 +22,7 @@ const EnhancedTable = () => {
           apiKey={import.meta.env.VITE_TINYMCE_API_KEY} // Use your TinyMCE API key here
           init={{
             height: 500,
-            width: 800,
+            width: 1200,
             menubar: false,
             plugins: 'advlist table advtable autolink lists link image charmap print preview anchor',
             toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',

@@ -9,7 +9,7 @@ const SpellChecker = () => {
     <div className="container-lg">
       <div className="row">
         <div className="col">
-          <h1 className="title">Spell Checker Pro and Autocorrect Demo</h1>
+          <h1 className="title">Spell Checker and Spelling Autocorrect Demo</h1>
           <br />
         </div>
       </div>

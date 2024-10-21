@@ -22,9 +22,10 @@ const PowerPasteDemo = () => {
             apiKey={import.meta.env.VITE_TINYMCE_API_KEY} // Use your TinyMCE API key here
             init={{
               height: 500,
+              width: 700,
               menubar: false,
-              plugins: 'advlist autolink lists link image charmap print preview anchor',
-              toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+              plugins: 'advlist autolink lists link image charmap print preview anchor fullscreen advcode',
+              toolbar: 'undo redo | formatselect | bold italic backcolor | code alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
             }}
           />
         </div>
@@ -35,19 +36,23 @@ const PowerPasteDemo = () => {
             apiKey={import.meta.env.VITE_TINYMCE_API_KEY} // Use your TinyMCE API key here
             init={{
               height: 500,
+              width: 700,
               menubar: false,
-              plugins: 'advlist autolink lists link image charmap print preview anchor powerpaste',
-              toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+              plugins: 'advlist autolink lists link image charmap print preview anchor fullscreen advcode powerpaste',
+              toolbar: 'undo redo | formatselect code | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
               powerpaste_allow_local_images: true,
               powerpaste_word_import: 'prompt',
               powerpaste_html_import: 'prompt',
+              powerpaste_googledocs_imports: 'prompt',
             }}
           />
         </div>
       </div>
       <div>
         <ul>
-          <li><a href="../assets/Lecture_Demo.docx" download="Lecture_Demo.docx">Sample Word Document</a></li>
+          <a href="https://docs.google.com/document/d/1R_T6g2q9L6k_IbYxbiJ2sb1_sS29dNdq/edit?usp=sharing&ouid=100517247904784149146&rtpof=true&sd=true" download="Lecture_Demo.docx">Math Lecture Word Document</a>
+          <br></br>
+          <a href="https://docs.google.com/document/d/10PcW3K7ZYtDLxSomlww0WPGA-jwBs6Qi/edit?usp=sharing&ouid=100517247904784149146&rtpof=true&sd=true" download="Sales_Demo.docx">Sales Word Document</a>
         </ul>
       </div>
     </>

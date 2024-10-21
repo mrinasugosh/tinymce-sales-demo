@@ -1,13 +1,12 @@
 .editor-container {
   display: flex;
-  justify-content: space-between;
-  gap: 20px; /* Adds some spacing between the two editors */
-  padding: 20px;
-}
-
-.editor-wrapper {
-  flex: 1;
-  max-width: 48%; /* Ensures both editors take up almost equal space */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px; /* Adds some spacing between the two editors */
+  padding: 5px;
+  margin: 5px;
+  max-width: 1495px !important;
 }
 
 h2 {

@@ -154,24 +154,196 @@ const ai_request = (request, respondWith) => {
     });
 };
 
+const ai_shortcuts = [
+  {
+    "title": "Summarize content",
+    "prompt": "Provide the key points and concepts in this content in a succinct summary.",
+    "selection": true
+  },
+  {
+    "title": "Improve Writing",
+    "prompt": "Rewrite this content with no spelling mistakes, proper grammar, and more descriptive language, using best writing practices without losing the original meaning.",
+    "selection": true
+  },
+  {
+    "title": "Simplify language",
+    "prompt": "Rewrite this content with simplified language to reduce complexity, making the content easier to understand.",
+    "selection": true
+  },
+  {
+    "title": "Expand upon",
+    "prompt": "Expand upon this content with more descriptive language and detailed explanations to increase clarity and length.",
+    "selection": true
+  },
+  {
+    "title": "Trim content",
+    "prompt": "Remove any repetitive, redundant, or non-essential text without changing the meaning or losing any key information.",
+    "selection": true
+  },
+  {
+    "title": "Change tone",
+    "subprompts": [
+      {
+        "title": "Professional",
+        "prompt": "Rewrite this content using polished, formal, and respectful language to convey professional expertise and competence.",
+        "selection": true
+      },
+      {
+        "title": "Casual",
+        "prompt": "Rewrite this content with casual, informal language to create a conversational tone.",
+        "selection": true
+      },
+      {
+        "title": "Direct",
+        "prompt": "Rewrite this content with concise, straightforward language, focusing only on the essential information.",
+        "selection": true
+      },
+      {
+        "title": "Confident",
+        "prompt": "Rewrite this content using compelling, optimistic language to convey confidence.",
+        "selection": true
+      },
+      {
+        "title": "Friendly",
+        "prompt": "Rewrite this content with friendly, comforting language to show empathy and understanding.",
+        "selection": true
+      }
+    ]
+  },
+  {
+    "title": "Change style",
+    "subprompts": [
+      {
+        "title": "Business",
+        "prompt": "Rewrite this content in a business professional style using formal language.",
+        "selection": true
+      },
+      {
+        "title": "Legal",
+        "prompt": "Rewrite this content with legal terminology to make it suitable for legal contexts.",
+        "selection": true
+      },
+      {
+        "title": "Journalism",
+        "prompt": "Rewrite this content in a journalistic style using engaging language to highlight the importance of the information.",
+        "selection": true
+      },
+      {
+        "title": "Medical",
+        "prompt": "Rewrite this content using valid medical terminology, suitable for a medical context.",
+        "selection": true
+      },
+      {
+        "title": "Poetic",
+        "prompt": "Rewrite this content as a poem using poetic techniques, while retaining the original meaning.",
+        "selection": true
+      }
+    ]
+  },
+  {
+    "title": "SEO & Content Optimization",
+    "subprompts": [
+      {
+        "title": "Optimize content for SEO",
+        "prompt": "Optimize the SEO of this content to improve search engine rankings, ensuring it includes relevant keywords, meta descriptions, alt text, internal links, and aligns with best practices for readability and structure.",
+        "selection": true
+      },
+      {
+        "title": "Optimize content for web/mobile",
+        "prompt": "Adapt this content for both web and mobile platforms, ensuring it is responsive, loads quickly, and is optimized for user experience.",
+        "selection": true
+      },
+      {
+        "title": "Optimize product description",
+        "prompt": "Revise this product description to highlight its highest-rated features based on customer reviews, emphasizing key attributes that drive purchasing decisions.",
+        "selection": true
+      }
+    ]
+  },
+  {
+    "title": "A/B Testing & Variation Creation",
+    "prompt": "Generate three content variations for A/B testing, focusing on different messaging, tone, and calls-to-action while maintaining brand alignment.",
+    "selection": true
+  },
+  {
+    "title": "Audience & Brand Personalization",
+    "subprompts": [
+      {
+        "title": "Optimize for target demographics",
+        "prompt": "Refine this content to resonate with your target audience (specify demographics such as age, gender, location), adjusting language, tone, and messaging to appeal to their preferences.",
+        "selection": true
+      },
+      {
+        "title": "Optimize for brand voice",
+        "prompt": "Adjust this content to match the voice of [Brand Name], ensuring it reflects the tone, style, and key messaging of the brand while maintaining consistency.",
+        "selection": true
+      }
+    ]
+  },
+  {
+    "title": "Style & Engagement Improvement",
+    "subprompts": [
+      {
+        "title": "Remove passive voice",
+        "prompt": "Rewrite this section to eliminate passive voice, making the content more direct, active, and engaging while retaining its original meaning.",
+        "selection": true
+      },
+      {
+        "title": "Create call to action",
+        "prompt": "Create a compelling call-to-action based on this content, encouraging users to take the next step (e.g., sign up, purchase, or contact us).",
+        "selection": true
+      },
+      {
+        "title": "Make text more engaging",
+        "prompt": "Revamp this content to make it more engaging by using persuasive language, dynamic verbs, and interactive elements that capture attention.",
+        "selection": true
+      },
+      {
+        "title": "Add more personality",
+        "prompt": "Infuse this content with more personality, making it feel conversational, relatable, and authentic while staying true to the brand's identity.",
+        "selection": true
+      }
+    ]
+  }
+];
+
   return (
-    <div className="container">
+    <>
     <div className="header-container"><h2>AI Assistant</h2></div>
-    <div className="editor-container"> 
-        <Editor
-          id="enhanced-table"
+    <div className="editor-container">
+        <div className="editor-wrapper">
+          <h2>Default Prompts</h2>
+          <Editor
+          id="ai-default-prompts"
           apiKey={import.meta.env.VITE_TINYMCE_API_KEY} // Use your TinyMCE API key here
           init={{
             height: 500,
-            width: 800,
+            width: 700,
             menubar: false,
             plugins: 'ai advlist table advtable autolink lists link image charmap print preview anchor',
             toolbar: 'aidialog aishortcuts | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
             ai_request,
           }}
         />
-    </div>
-    </div>
+        </div>
+        <div className="editor-wrapper">
+          <h2>Custom Prompts</h2>
+          <Editor
+            id="custom-prompts"
+            apiKey={import.meta.env.VITE_TINYMCE_API_KEY} // Use your TinyMCE API key here
+            init={{
+              height: 500,
+              width: 700,
+              menubar: false,
+              plugins: 'ai advlist table advtable autolink lists link image charmap print preview anchor',
+              toolbar: 'aidialog aishortcuts | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+              ai_request,
+              ai_shortcuts,
+          }}
+        />
+        </div>
+      </div>
+    </>
   );
 };
 
